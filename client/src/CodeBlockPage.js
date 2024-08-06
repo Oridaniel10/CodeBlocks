@@ -101,7 +101,6 @@ const CodeBlockPage = () => {
                 {role === 'student' && <button onClick={handleSave}>Save</button>}
             </div>
             {message && <p className="save-message">{message}</p>}
-            <h2></h2>
         </div>
     );
 };
