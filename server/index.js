@@ -4,6 +4,8 @@ const mongoose = require('mongoose');
 const cors = require('cors'); 
 const dotenv = require('dotenv'); // Import the dotenv library
 const { Server } = require('socket.io'); // Import the Socket.io library
+const path = require('path');
+
 
 dotenv.config();
 
@@ -36,6 +38,10 @@ mongoose.connect(process.env.MONGODB_URI, {
 // Import routes
 const codeBlockRoutes = require('./routes/codeBlockRoutes'); 
 app.use('/codeblocks', codeBlockRoutes); // Use the code block routes
+
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../client/build', 'index.html'));
+});
 
 // track of mentors and clients by sockets
 const roomState = {};

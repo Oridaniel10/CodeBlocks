@@ -4,8 +4,8 @@
     "description": "Moveo task project",
     "main": "index.js",
     "scripts": {
-        "start": "node server/index.js",
-        "build" : "npm i"
+        "start": "node index.js",
+        "build" : "npm install"
     },
     "keywords": [],
     "author": "",
