@@ -24,6 +24,7 @@ const PORT = process.env.PORT || 5000;
 // CORS and JSON middleware
 app.use(cors()); 
 app.use(express.json()); 
+app.use(express.static(path.join(__dirname, '../client/build')));
 
 // Connect to MongoDB database
 mongoose.connect("mongodb+srv://orizxzx:ori123@moveotaskcluster.ieep98b.mongodb.net/CodeBlocks?retryWrites=true&w=majority", {
