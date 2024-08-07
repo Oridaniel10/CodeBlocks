@@ -14,7 +14,7 @@ const app = express();
 const server = http.createServer(app); //http server using the Express app
 const io = new Server(server, { // create a new Socket.io server
     cors: {
-        origin: "http://localhost:3000", // allow requests from this origin
+        origin: "https://codeblocks-front-wncy.onrender.com", // allow requests from this url
         methods: ["GET", "POST"] 
     }
 });
@@ -26,7 +26,7 @@ app.use(cors());
 app.use(express.json()); 
 
 // Connect to MongoDB database
-mongoose.connect(process.env.MONGODB_URI, {
+mongoose.connect("mongodb+srv://orizxzx:ori123@moveotaskcluster.ieep98b.mongodb.net/CodeBlocks?retryWrites=true&w=majority", {
     useNewUrlParser: true, 
     useUnifiedTopology: true, 
 }).then(() => {
