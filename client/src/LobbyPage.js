@@ -12,7 +12,7 @@ const LobbyPage = () => {
 
     useEffect(() => {
         // Fetch code blocks from the server
-        axios.get('http://localhost:5000/codeblocks')
+        axios.get('https://codeblocks-5aos.onrender.com/codeblocks')
             .then(response => {
                 setCodeBlocks(response.data); 
                 setLoading(false); // Set loading to false

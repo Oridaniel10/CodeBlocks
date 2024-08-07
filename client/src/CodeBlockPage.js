@@ -6,7 +6,7 @@ import hljs from 'highlight.js';
 import 'highlight.js/styles/default.css';
 import './style/CodeBlockPage.css';
 
-const socket = io('http://localhost:5000'); //when deployed we need to change!!!!!
+const socket = io('https://codeblocks-5aos.onrender.com'); //when deployed we need to change!!!!!
 
 const CodeBlockPage = () => {
     const { id } = useParams(); // id from the url
@@ -18,7 +18,7 @@ const CodeBlockPage = () => {
 
     useEffect(() => {
         // Fetch 
-        axios.get(`http://localhost:5000/codeblocks/${id}`)
+        axios.get(`https://codeblocks-5aos.onrender.com/codeblocks/${id}`)
             .then(response => {
                 setCodeBlock(response.data); // Store the code block in state
                 setCode(response.data.code); // Store the code in state
@@ -39,7 +39,7 @@ const CodeBlockPage = () => {
         });
 
         socket.on('updateCode', (newCode) => {
-            setCode(newCode); // Update the code in state
+            setCode(newCode); // update the code in state
         });
 
         socket.on('clientCount', (count) => {
@@ -71,7 +71,7 @@ const CodeBlockPage = () => {
     };
 
     const handleSave = () => {
-        axios.put(`http://localhost:5000/codeblocks/${id}`, { code })
+        axios.put(`https://codeblocks-5aos.onrender.com/codeblocks/${id}`, { code })
             .then(() => {
                 setMessage('Code saved successfully'); 
                 setTimeout(() => setMessage(''), 3000); // 3 seconds
